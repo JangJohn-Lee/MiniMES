@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>자재 주문 조회</title>
+  <link rel="stylesheet" href="/css/inventory.css">
+</head>
+<body>
+<header th:insert="fragments/header.html"></header>
+
+
+   <!-- 컨텐츠 영역 -->
+   <div class="content">
+     <h2 class="title">자재 주문 조회</h2>
+    <table id="myTable">
+      <tr>
+        <th>제품</th>
+        <th>수량</th>
+        <th>발주일</th>
+        <th>입고일</th>
+      </tr>
+      <tr th:each="MatOrder : ${matOrderList}">
+        <td><span th:text="${MatOrder.matId}"></span></td>
+        <td><span th:text="${MatOrder.matNum}"></span></td>
+        <td><span th:text="${MatOrder.orderDate}"></span></td>
+        <td><span th:text="${MatOrder.comDate}"></span></td>
+      </tr>
+    </table> 
+ 
+  <script src="/js/inventory.js"></script>
+</body>
+</html>

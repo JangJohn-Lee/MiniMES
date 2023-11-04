@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>작업 예정 페이지</title>
+  <link rel="stylesheet" href="/css/process.css">
+</head>
+<body>
+<header th:insert="fragments/header.html"></header>
+
+<!-- 컨텐츠 영역 -->
+<div class="content">
+  <h2 class="title">작업 예정 조회</h2>
+  <div class="search">
+    <!-- 드롭다운 메뉴 -->
+    <form name="search-form" autocomplete="off" action="/process2" role="form" method="post">
+      <select id="dropdown" name="type">
+        <option value="option1">id</option>
+        <option value="option2">공정명</option>
+        <option value="option3">날짜</option>
+      </select>
+
+      <!-- 검색창 -->
+      <input type="text" name="keyword" id="search" placeholder="검색어를 입력하세요" value="">
+
+      <!-- 검색 버튼 -->
+      <button onclick="search()">검색</button>
+    </form>
+    <div class="downloadbtn">
+      <button><a id="DownBtn" th:href="@{/excel/download2(type=${type},keyword=${keyword})}">다운</a></button>
+    </div>
+  </div>
+
+  <table id="myTable3">
+    <tr id="trtag">
+      <th>수주 ID</th>
+      <th>공정명</th>
+      <th>예상시작시간</th>
+      <th>예상종료시간</th>
+    </tr>
+    <tr th:each="production, status: ${list}">
+      <td><span th:text="${production.orderId}"></span></td>
+      <td><span th:text="${production.lotId}"></span> </td>
+      <td><span th:text="${production.startTime}"></span> </td>
+      <td><span th:text="${production.endTime}"></span> </td>
+    </tr>
+  </table>
+
+  <div class="pageBtn">
+    <th:block th:each="page:${#numbers.sequence(startPage,endPage)}">
+      <input type="hidden" name="type" th:value="${type}">
+      <input type="hidden" name="keyword" th:value="${keyword}">
+      <th:block th:if="${page !=0}">
+      <a id="borderToolsPagingBox" th:if="${page != nowPage}" th:href="@{/process2/page/search(page=${page - 1},type=${type},keyword=${keyword})}" th:text ="${page}" ></a>
+      <strong th:if="${page==nowPage}" th:text ="${page}" style="color:red"></strong>
+      </th:block>
+    </th:block>
+  </div>
+
+</div>
+
+<script src="/js/process2.js"></script>
+</body>
+</html>

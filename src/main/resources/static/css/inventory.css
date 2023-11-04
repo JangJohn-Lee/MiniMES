@@ -1,0 +1,102 @@
+/* inventory css*/
+#myTable {
+  border-collapse: collapse;
+  width: 100%;
+  height: 100px;
+}
+
+#myTable th, #myTable td {
+  border: 1px solid black;
+  padding: 16px;
+  text-align: center;
+  vertical-align: center;
+}
+
+#myTable th {
+  background-color: lightgray;
+}
+
+
+/* inventory2 css*/
+#myTable1 {
+  border-collapse: collapse;
+  width: 100%;
+  height: 100px;
+}
+
+#myTable1 th, #myTable1 td {
+  border: 1px solid black;
+  padding: 16px;
+  text-align: center;
+  vertical-align: center;
+}
+
+#myTable1 th {
+  background-color: lightgray;
+}
+
+.title {
+  text-align: center;
+}
+
+.title1 {
+  margin-top: 100px;
+  text-align: center;
+}
+/* inventory2 css*/
+#myTable2 {
+  border-collapse: collapse;
+  width: 100%;
+  height: 100px;
+}
+
+#myTable2 th, #myTable2 td {
+  border: 1px solid black;
+  padding: 16px;
+  text-align: center;
+  vertical-align: center;
+}
+
+#myTable2 th {
+  background-color: lightgray;
+}
+/*=================================================================*/
+
+
+.search {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+} 
+.title {
+  margin-right: 10px;
+}
+.search-input {
+  width: 200px;
+}
+
+
+
+
+
+/*=================================================================*/
+
+.myTable {
+  margin-top: 15%;
+  }
+  .title {
+    margin-right: 10px;
+  }
+  .search-input {
+    width: 200px;
+  }
+
+
+
+
+/* 페이지 */
+#pageBtn {
+  display: flex;
+  justify-content: center;
+}
+

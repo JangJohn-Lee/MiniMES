@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>재고 조회</title>
+  <link rel="stylesheet" href="/css/inventory.css">
+</head>
+<body>
+<header th:insert="fragments/header.html"></header>
+
+    <!-- 컨텐츠 영역 -->
+    <div class="content">
+      <h2 class="title">원자재 조회</h2>
+      <table id="myTable1">
+        <tr>
+          <th>제품</th>
+<!--          <th>입고일</th>-->
+          <th>수량</th>
+        </tr>
+        <tr>
+          <td ><span >양배추</span></td>
+          <td><span th:text="${cab}"></span></td>
+        </tr>
+        <tr>
+          <td ><span >흑마늘</span></td>
+          <td><span th:text="${gal}"></span>
+        </tr>
+        <tr>
+        <td ><span >석류</span></td>
+          <td><span th:text="${pom}"></span></td>
+        </tr>
+        <tr>
+          <td ><span >매실</span></td>
+          <td><span th:text="${plu}"></span></td>
+        </tr>
+        <tr>
+          <td ><span >콜라겐</span></td>
+          <td><span th:text="${col}"></span></td>
+        </tr>
+        <tr>
+          <td ><span >파우치</span></td>
+          <td><span th:text="${pau}"></span></td>
+        </tr>
+        <tr>
+          <td ><span >스틱파우치</span></td>
+          <td><span th:text="${stick}"></span></td>
+        </tr>
+        <tr>
+          <td ><span >박스</span></td>
+          <td><span th:text="${box}"></span></td>
+        </tr>
+
+      </table>
+
+      <h2 class="title1">완제품 조회</h2>
+      <table id="myTable2">
+        <tr>
+          <th>LotId</th>
+          <th>제품</th>
+          <th>수량</th>
+        </tr>
+        <tr th:each="product, status: ${list}">
+          <td><span th:text="${product.lotId}"></span> </td>
+          <td><span th:text="${product.product}"></span></td>
+          <td><span th:text="${product.num}"></span> </td>
+        </tr>
+      </table>
+    </div>
+      <script src="/js/inventory2.js"></script>
+</body>
+</html>
